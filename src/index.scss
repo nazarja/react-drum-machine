@@ -1,0 +1,231 @@
+/***************
+ Variables
+***************/
+@import url('https://fonts.googleapis.com/css?family=Yellowtail|Press+Start+2P');
+$cream: #e6dcc3;
+$red: #c33c2e;
+
+/***************
+ General
+***************/
+body {
+	margin: 0;
+	padding: 0;
+	font-family: fantasy, verdana, sans-serif;
+	background: url("https://www.toptal.com/designers/subtlepatterns/patterns/navy_blue.png");
+	color: $cream;
+	height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+	font-family: 'Yellowtail', sans-serif;
+	text-shadow: 0px 5px #0c0c0c;
+}
+hr {
+	margin: 40px auto;
+	border-color: #333; 
+}
+
+/***************
+ Drum Machine
+***************/
+#drum-machine {
+    background-color: #272727;
+    border: 1px solid #383838;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 1px 10px 3px rgba(21, 21, 21, 0.9);
+    box-shadow: 0 1px 10px 3px rgba(21, 21, 21, 0.9);
+    text-align: center;
+    margin: auto;
+    min-height: 450px;
+    width: 900px;
+    padding: 25px;
+    padding-right: 0;
+	#drum-machine-left {
+		display: inline-block;
+		width: 50%;
+	}
+	#drum-machine-right {
+		display: inline-block;
+		width: 50%;
+		vertical-align: top;
+	}
+}
+
+
+/***************
+ DrumPads
+***************/
+#drum-pads {
+	display: grid;
+	grid-template-columns: 33.3% 33.3% 33.3%;
+	grid-template-columns: auto auto auto;
+	grid-row-gap: 10px;
+	grid-column-gap: 4px;
+	.drum-pad {
+		font-size: 1.4em;
+		background: radial-gradient(#333, #282828,#222, #181818);
+		border: 1px solid #111;
+		border-radius: 10px;
+		height: 150px;
+		width: 150px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		cursor: pointer;
+		transition: all 0.1s;
+		transition-timing-function:  ease-in-out;
+		box-shadow: 0px 6px 0px #181818, 0px 3px 15px rgba(0,0,0,.4), inset 0px 0px 2px rgba(255,255,255,.3);
+		&:active {
+			background: radial-gradient( #f0eadc, #e6dcc3, #dfd2b1, #d6c59a);
+			color: #333;
+			box-shadow: 0px 4px 0px #181818, 0px 3px 15px rgba(0,0,0,.4), inset 0px 0px 2px rgba(255,255,255,.3);
+			transform: translateY(2px);
+		}
+	}
+}
+.active {
+	background: radial-gradient( #f0eadc, #e6dcc3, #dfd2b1, #d6c59a);
+	color: #333;
+	box-shadow: 0px 4px 0px #181818, 0px 3px 15px rgba(0,0,0,.4), inset 0px 0px 2px rgba(255,255,255,.3);
+	transform: translateY(2px);
+}
+
+
+
+/***************
+ Display
+***************/
+#display {
+	height: 60px;
+    width: 70%;
+    margin: auto;
+    background: linear-gradient(#171717, #1f1f1f, #222, #171717);
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0px 0px 2px rgba(255, 255, 255, 0.3);
+    box-shadow:  inset 0px 0px 1px 1px rgba(255, 255, 255, 0.3), 0 1px 2px 1px rgba(0,0,0,0.3);
+	border: 1px solid #222;
+	font-family: 'Press Start 2P', monospace;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	color: $red;
+	transition: 0.5s;
+	transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+#volume-display {
+	@extend #display;
+	height: 60px;
+	width: 100px;
+	font-size: 1em;
+}
+
+/***************
+ Banks
+***************/
+#banks {
+	.bank1, .bank2 {
+		background: radial-gradient(#333, #282828,#222, #181818);
+		box-shadow: 0px 6px 0px #181818, 0px 3px 15px rgba(0,0,0,.4), inset 0px 0px 2px rgba(255,255,255,.3);
+		display: inline-block;
+		border-radius: 50%;
+		height: 150px;
+		width: 150px;
+		margin: auto 20px;
+		line-height: 150px;
+		border: 1px solid #000;
+		cursor: pointer;
+		&:active{
+			transform: translateY(2px);
+		}
+	}
+	.selected {
+		background: radial-gradient( #f5ebd4, #ebddbb, #e6d5ab, #dac48f);
+		color: #333;
+	}
+}
+
+
+
+/***************
+ Webkit
+***************/
+#volume-div {
+	input {
+		-webkit-appearance: none;
+		border-radius: 100px;
+		box-shadow: inset 0 0 4px rgb(14, 14, 14);
+		background-color: rgb(14, 14, 14);
+		height: 6px;
+		border: 5px solid #1f2020;
+		outline: none;
+		position: relative;
+		top: 40px;
+		left: -60px;
+		width: 40%;
+		&::-webkit-slider-thumb {
+			cursor: pointer;
+			-webkit-appearance: none !important;
+			border-radius: 3px;
+			background-color: $cream;
+			box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+			height: 30px;
+			width: 20px;
+			box-shadow: -4px 2px 10pxrgba(116, 23, 23, 0.6);
+		}
+	}
+	span {
+		position: relative;
+		top: 0px;
+		left: 110px;
+	}
+}
+
+/***************
+ MOZ
+***************/
+#volume-div {
+	::-moz-range-track {
+		-moz-appearance: none;
+		border-radius: 100px;
+		box-shadow: inset 0 0 4px rgb(14, 14, 14);
+		background-color: rgb(14, 14, 14);
+		height: 6px;
+		border: 5px solid #1f2020;
+		outline: none;
+		position: relative;
+		top: 40px;
+		left: -60px;
+		width: 40%;
+		&::-moz-range-thumb {
+			cursor: pointer;
+			-moz-appearance: none !important;
+			border-radius: 3px;
+			background-color: $cream;
+			box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+			height: 30px;
+			width: 20px;
+			box-shadow: -4px 2px 10pxrgba(116, 23, 23, 0.6);
+		}
+	}
+	span {
+		position: relative;
+		top: 0px;
+		left: 110px;
+	}
+}
+
+@media (max-width: 900px) {
+	body {
+		max-height: 100vh;
+		align-items: none;
+		justify-content: left;
+	}
+}
+
